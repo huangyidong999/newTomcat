@@ -30,7 +30,7 @@ public class Bootstrap {
 
                 OutputStream os = s.getOutputStream();
                 String response_head = "HTTP/1.1 200 OK\r\n" + "Content-Type: text/html\r\n\r\n";
-                String responseString = "Hello My first page    ";
+                String responseString = "Hello I hope I will get a job";
                 responseString = response_head + responseString;
                 os.write(responseString.getBytes());
                 os.flush();
