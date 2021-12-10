@@ -1,5 +1,6 @@
 package com.job.tomcat;
 import cn.hutool.core.util.NetUtil;
+import com.job.http.Request;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,13 +21,11 @@ public class Bootstrap {
             ServerSocket ss = new ServerSocket(port);
 
             while(true) {
+                //这个是服务器获得套接字方法
                 Socket s =  ss.accept();
-                InputStream is= s.getInputStream();
-                int bufferSize = 1024;
-                byte[] buffer = new byte[bufferSize];
-                is.read(buffer);
-                String requestString = new String(buffer,"utf-8");
-                System.out.println("浏览器的输入信息： \r\n" + requestString);
+                Request request=new Request(s);
+                System.out.println("浏览器的输入信息:"+request.getRequestString());
+                System.out.println("浏览器的URI:"+request.getRequestUri());
 
                 OutputStream os = s.getOutputStream();
                 String response_head = "HTTP/1.1 200 OK\r\n" + "Content-Type: text/html\r\n\r\n";
