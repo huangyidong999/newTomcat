@@ -34,6 +34,12 @@ public class tomcatTest {
         Assert.assertEquals(html, "Hello I hope I will get a job");
     }
 
+    @Test
+    public  void  testaHtml(){
+        String html = getContentString("/a.html");
+        Assert.assertEquals(html,"Hello I hope I will get a job");
+    }
+
     /**
      * 仿造浏览器请求
      **/
