@@ -3,6 +3,9 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
+import cn.hutool.system.SystemUtil;
 import com.job.http.Request;
 import com.job.http.Response;
 import com.job.util.Constant;
@@ -13,17 +16,17 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Bootstrap {
     public static void main(String[] args) {
 
         try {
+            logJVM();
             int port = 18080;
 
-            if(!NetUtil.isUsableLocalPort(port)) {
-                System.out.println(port +" 端口已经被占用了，排查并关闭本端口的办法请用：\r\nhttps://how2j.cn/k/tomcat/tomcat-portfix/545.html");
-                return;
-            }
             ServerSocket ss = new ServerSocket(port);
 
             while(true) {
@@ -58,10 +61,29 @@ public class Bootstrap {
                 s.close();
             }
         } catch (IOException e) {
+            LogFactory.get().error(e);
             e.printStackTrace();
         }
 
     }
+
+    private static void logJVM(){
+        Map<String,String> infos = new LinkedHashMap<>();
+        infos.put("Server Version","MyTomcat/1.0.1");
+        infos.put("Server built","2020-04-08 10:20:22");
+        infos.put("Server number","1.0.1");
+        infos.put("OS Name\t", SystemUtil.get("os.name"));
+        infos.put("OS Version", SystemUtil.get("os.version"));
+        infos.put("Architecture",SystemUtil.get("os.arch"));
+        infos.put("Java Home",SystemUtil.get("java.runtime.version"));
+        infos.put("JVM Vendor",SystemUtil.get("Java.vm.specification.vendor"));
+
+        Set<String> keys = infos.keySet();
+        for(String key : keys){
+            LogFactory.get().info(key +"\t\t" + infos.get(key));
+        }
+    }
+
     public static void handler200(Socket socket, Response response) throws IOException {
         //得到响应内容
         String contentType=response.getContentType();
