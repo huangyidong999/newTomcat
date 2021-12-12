@@ -1,5 +1,6 @@
 package com.job.tomcat;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.StrUtil;
@@ -9,6 +10,7 @@ import cn.hutool.system.SystemUtil;
 import com.job.http.Request;
 import com.job.http.Response;
 import com.job.util.Constant;
+import com.job.util.ThreadPoolUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,35 +33,45 @@ public class Bootstrap {
             ServerSocket ss = new ServerSocket(port);
 
             while(true) {
-                //这个是服务器获得套接字方法
-                Socket s =  ss.accept();
-                Request request=new Request(s);
-                Response response=new Response();
+              Socket s = ss.accept();
+              Runnable r = new Runnable() {
+                  @Override
+                  public void run() {
+                      try {
+                          Request request = new Request(s);
+                          Response response = new Response();
 
-                String uri = request.getRequestUri();
-                if(null==uri){
-                    continue;
-                }
-                if("/".equals(uri)){
-                    String html = "Hello I hope I will get a job";
-                    response.getPrintWriter().println(html);
-                }
-                else{
-                    String fileName = StrUtil.removePrefix(uri,"/");
-                    File file = FileUtil.file(Constant.rootFolder,fileName);
-                    if(file.exists()){
-                        String fileContent = FileUtil.readUtf8String(file);
-                        response.getPrintWriter().println(fileContent);
-                    }
-                    else {
-                        response.getPrintWriter().println("File Not Found");
-                    }
-                }
-                System.out.println("浏览器的输入信息:"+request.getRequestString());
-                System.out.println("浏览器的URI:"+request.getRequestUri());
+                          String uri = request.getRequestUri();
+                          if (null == uri) {
+                              return;
+                          }
+                          if ("/".equals(uri)) {
+                              String html = "Hello I hope I will get a job";
+                              response.getPrintWriter().println(html);
+                          } else {
+                              String fileName = StrUtil.removePrefix(uri, "/");
+                              File file = FileUtil.file(Constant.rootFolder, fileName);
+                              if (file.exists()) {
+                                  String fileContent = FileUtil.readUtf8String(file);
+                                  response.getPrintWriter().println(fileContent);
 
-                handler200(s, response);
-                s.close();
+                                  if (fileName.equals("timeConsume.html")) {
+                                      ThreadUtil.sleep(1000);
+                                  }
+                              } else {
+                                  response.getPrintWriter().println("File Not Found");
+                              }
+                          }
+
+                          handler200(s, response);
+                      } catch (IOException e) {
+                          LogFactory.get().error(e);
+                          e.printStackTrace();
+                      }
+                  }
+              };
+
+                ThreadPoolUtil.run(r);
             }
         } catch (IOException e) {
             LogFactory.get().error(e);

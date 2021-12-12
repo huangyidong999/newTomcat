@@ -1,16 +1,32 @@
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
 INFO : Server Version		MyTomcat/1.0.1
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
 INFO : Server built		2020-04-08 10:20:22
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
 INFO : Server number		1.0.1
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
 INFO : OS Name			Windows 10
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
 INFO : OS Version		10.0
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
 INFO : Architecture		amd64
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
 INFO : Java Home		1.8.0_312-b07
-12 10, 2021 22:50:11 下午 com.job.tomcat.Bootstrap logJVM
+12 11, 2021 20:53:27 下午 com.job.tomcat.Bootstrap logJVM
+INFO : JVM Vendor		null
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
+INFO : Server Version		MyTomcat/1.0.1
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
+INFO : Server built		2020-04-08 10:20:22
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
+INFO : Server number		1.0.1
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
+INFO : OS Name			Windows 10
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
+INFO : OS Version		10.0
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
+INFO : Architecture		amd64
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
+INFO : Java Home		1.8.0_312-b07
+12 11, 2021 21:23:37 下午 com.job.tomcat.Bootstrap logJVM
 INFO : JVM Vendor		null
