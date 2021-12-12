@@ -5,6 +5,9 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
 import com.job.catalina.Context;
+import com.job.catalina.Engine;
+import com.job.catalina.Host;
+import com.job.catalina.Service;
 import com.job.tomcat.Bootstrap;
 import com.job.util.MiniBrowser;
 import cn.hutool.core.util.StrUtil;
@@ -15,8 +18,10 @@ public class Request {
     private String uri;
     private Socket socket;
     private Context context;
-    public Request(Socket socket) throws IOException {
+    private Service service;
+    public Request(Socket socket, Service service) throws IOException {
         this.socket = socket;
+        this.service = service;
         parseHttpRequest();
         if(StrUtil.isEmpty(requestString))
             return;
@@ -27,19 +32,7 @@ public class Request {
 
     }
 
-    private void parseContext() {
-        /*** for this method we will consider if the string include two '/' or not
-         * the request will be looks like /a/index or /index ***/
-        String path = StrUtil.subBetween(uri, "/", "/");
-        if (null == path)
-            path = "/";
-        else
-            path = "/" + path;
 
-        context = Bootstrap.contextMap.get(path);
-        if (null == context)
-            context = Bootstrap.contextMap.get("/");
-    }
 
     private void parseHttpRequest() throws IOException {
         InputStream is = this.socket.getInputStream();
@@ -69,6 +62,20 @@ public class Request {
 
     public String getRequestString(){
         return requestString;
+    }
+
+    private void parseContext() {
+        String path = StrUtil.subBetween(uri, "/", "/");
+        if (null == path)
+            path = "/";
+        else
+            path = "/" + path;
+
+        Engine engine = service.getEngine();
+
+        context = engine.getDefaultHost().getContext(path);
+        if (null == context)
+            context = engine.getDefaultHost().getContext("/");
     }
 
 }

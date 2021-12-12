@@ -52,7 +52,11 @@ public class tomcatTest {
         String html = getContentString("/a/index.html");
         Assert.assertEquals(html,"Hello I hope I will get a job");
     }
-
+    @Test
+    public void testbIndex() {
+        String html = getContentString("/b/b.html");
+        Assert.assertEquals(html,"Hello I hope I will get a job");
+    }
 
     @Test
     public void testTimeConsumeHtml() throws InterruptedException {

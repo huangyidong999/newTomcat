@@ -10,18 +10,19 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
 import cn.hutool.system.SystemUtil;
 import com.job.catalina.Context;
+import com.job.catalina.Engine;
+import com.job.catalina.Host;
+import com.job.catalina.Service;
 import com.job.http.Request;
 import com.job.http.Response;
+import com.job.util.ServerXMLUtil;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Bootstrap {
     public static Map<String, Context> contextMap = new HashMap<>();
@@ -29,8 +30,10 @@ public class Bootstrap {
     public static void main(String[] args) {
         try {
             logJVM();
+            Service service = new Service();
 
             scanContextsOnWebAppsFolder();
+            scanContextsInServerXML();
 
             int port = 18080;
 
@@ -42,7 +45,7 @@ public class Bootstrap {
                     @Override
                     public void run() {
                         try {
-                            Request request = new Request(s);
+                            Request request = new Request(s,service);
                             Response response = new Response();
                             String uri = request.getUri();
                             if(null==uri)
@@ -143,5 +146,12 @@ public class Bootstrap {
         OutputStream os = s.getOutputStream();
         os.write(responseBytes);
         s.close();
+    }
+
+    private static void scanContextsInServerXML() {
+        List<Context> contexts = ServerXMLUtil.getContexts();
+        for (Context context : contexts) {
+            contextMap.put(context.getPath(), context);
+        }
     }
 }
