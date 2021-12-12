@@ -3,54 +3,72 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+
+import com.job.catalina.Context;
+import com.job.tomcat.Bootstrap;
 import com.job.util.MiniBrowser;
 import cn.hutool.core.util.StrUtil;
 
 public class Request {
-    /**
-     * 创造Request类用来封装http请求内容
-     */
 
     private String requestString;
-    private String requestUri;
+    private String uri;
     private Socket socket;
-
+    private Context context;
     public Request(Socket socket) throws IOException {
-        this.socket=socket;
+        this.socket = socket;
         parseHttpRequest();
-        if (StrUtil.isEmpty(requestString)){
+        if(StrUtil.isEmpty(requestString))
             return;
-        }
         parseUri();
+        parseContext();
+        if(!"/".equals(context.getPath()))
+            uri = StrUtil.removePrefix(uri, context.getPath());
+
     }
-    /**
-     *对URL进行解析
-     */
+
+    private void parseContext() {
+        /*** for this method we will consider if the string include two '/' or not
+         * the request will be looks like /a/index or /index ***/
+        String path = StrUtil.subBetween(uri, "/", "/");
+        if (null == path)
+            path = "/";
+        else
+            path = "/" + path;
+
+        context = Bootstrap.contextMap.get(path);
+        if (null == context)
+            context = Bootstrap.contextMap.get("/");
+    }
 
     private void parseHttpRequest() throws IOException {
-        InputStream inputStream=this.socket.getInputStream();
-        byte[] bytes= MiniBrowser.readBytes(inputStream);
-        requestString=new String(bytes, StandardCharsets.UTF_8);
+        InputStream is = this.socket.getInputStream();
+        byte[] bytes = MiniBrowser.readBytes(is);
+        requestString = new String(bytes, "utf-8");
     }
-    /**
-     * 对URI的解析
-     */
 
-    private void parseUri(){
+    private void parseUri() {
         String temp;
-        temp= StrUtil.subBetween(requestString, " "," ");
-        if (!StrUtil.contains(temp,'?')){
-            requestUri=temp;
+
+        temp = StrUtil.subBetween(requestString, " ", " ");
+        if (!StrUtil.contains(temp, '?')) {
+            uri = temp;
             return;
         }
-        temp=StrUtil.subBefore(temp,'?',false);
-        requestUri=temp;
+        temp = StrUtil.subBefore(temp, '?', false);
+        uri = temp;
     }
-    public String getRequestString() {
+
+    public Context getContext() {
+        return context;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public String getRequestString(){
         return requestString;
     }
 
-    public String getRequestUri() {
-        return requestUri;
-    }
 }

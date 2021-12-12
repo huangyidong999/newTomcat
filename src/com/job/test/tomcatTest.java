@@ -48,6 +48,13 @@ public class tomcatTest {
     }
 
     @Test
+    public void testIndex() {
+        String html = getContentString("/a/index.html");
+        Assert.assertEquals(html,"Hello I hope I will get a job");
+    }
+
+
+    @Test
     public void testTimeConsumeHtml() throws InterruptedException {
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(20, 20, 60, TimeUnit.SECONDS,
                 new LinkedBlockingQueue<Runnable>(10));
