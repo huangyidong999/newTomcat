@@ -79,10 +79,25 @@ public class tomcatTest {
         Assert.assertTrue(duration < 3000);
     }
     /**
-     * 仿造浏览器请求
+     * build a request from browser
      **/
     public String getContentString(String uri) {
         String url = StrUtil.format("http://{}:{}{}", ip, port, uri);
         return MiniBrowser.getContentString(url);
     }
+
+    /***
+     * this method is to get the response inseaded of only content
+     * ***/
+    private String getHttpString(String uri) {
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        String http = MiniBrowser.getHttpString(url);
+        return http;
+    }
+
+    private void containAssert(String html, String string) {
+        boolean match = StrUtil.containsAny(html, string);
+        Assert.assertTrue(match);
+    }
+
 }
