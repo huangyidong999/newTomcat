@@ -3,14 +3,18 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.http.HttpUtil;
 import com.job.util.MiniBrowser;
 import org.apache.tomcat.util.threads.ThreadPoolExecutor;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+
+import static com.job.util.MiniBrowser.getContentBytes;
 
 public class tomcatTest {
     private static int port = 18080;
@@ -29,6 +33,13 @@ public class tomcatTest {
         }
     }
 
+    @Test
+    public void test500() {
+        String response  = getHttpString("/500.html");
+        containAssert(response, "HTTP/1.1 500 Internal Server Error");
+    }
+
+
     /**
      * 使用Junit的@Test注解进行测试
      **/
@@ -43,7 +54,7 @@ public class tomcatTest {
     //test
     @Test
     public  void  testaHtml(){
-        String html = getContentString("/a.html");
+        String html = getContentString("/a");
         Assert.assertEquals(html,"Hello I hope I will get a job");
     }
 
@@ -54,7 +65,7 @@ public class tomcatTest {
     }
     @Test
     public void testbIndex() {
-        String html = getContentString("/b/b.html");
+        String html = getContentString("/b/");
         Assert.assertEquals(html,"Hello I hope I will get a job");
     }
 
@@ -77,6 +88,29 @@ public class tomcatTest {
         long duration = timeInterval.intervalMs();
 
         Assert.assertTrue(duration < 3000);
+    }
+
+    @Test
+    public void testaTxt() {
+        String response  = getHttpString("/a.txt");
+        containAssert(response, "Content-Type: text/plain");
+    }
+
+    @Test
+    public void testPNG() {
+        byte[] bytes = getContentBytes("/logo.png");
+        int pngFileLength = 1672;
+        Assert.assertEquals(pngFileLength, bytes.length);
+    }
+
+    @Test
+    public void testPDF() {
+        String uri = "/etf.pdf";
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        HttpUtil.download(url, baos, true);
+        int pdfFileLength = 3590775;
+        Assert.assertEquals(pdfFileLength, baos.toByteArray().length);
     }
     /**
      * build a request from browser

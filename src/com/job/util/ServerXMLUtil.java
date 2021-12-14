@@ -1,8 +1,8 @@
 package com.job.util;
 
+import cn.hutool.core.convert.Convert;
 import cn.hutool.core.io.FileUtil;
-import com.job.catalina.Engine;
-import com.job.catalina.Host;
+import com.job.catalina.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,7 +10,6 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.job.catalina.Context;
 
 public class ServerXMLUtil {
     public static List<Context> getContexts() {
@@ -51,9 +50,24 @@ public class ServerXMLUtil {
         Elements es = d.select("Host");
         for (Element e : es) {
             String name = e.attr("name");
-            Host host = new Host(name,engine);
+            Host host = new Host(name, engine);
             result.add(host);
         }
         return result;
+    }
+
+    public static List<Connector> getConnectors(Service service) {
+        List<Connector> result = new ArrayList<>();
+        String xml = FileUtil.readUtf8String(Constant.serverXmlFile);
+        Document d = Jsoup.parse(xml);
+        Elements es = d.select("Connector");
+        for (Element e : es) {
+            int port = Convert.toInt(e.attr("port"));
+            Connector c = new Connector(service);
+            c.setPort(port);
+            result.add(c);
+        }
+        return result;
+
     }
 }
