@@ -112,6 +112,15 @@ public class tomcatTest {
         int pdfFileLength = 3590775;
         Assert.assertEquals(pdfFileLength, baos.toByteArray().length);
     }
+
+
+
+    @Test
+    public void testhello() {
+        String html = getContentString("/j2ee/hello");
+        Assert.assertEquals(html,"Hello I hope I will get a job");
+    }
+
     /**
      * build a request from browser
      **/

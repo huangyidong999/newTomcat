@@ -2,23 +2,21 @@ package com.job.http;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
-
 import com.job.catalina.Context;
 import com.job.catalina.Engine;
-import com.job.catalina.Host;
 import com.job.catalina.Service;
-import com.job.tomcat.Bootstrap;
 import com.job.util.MiniBrowser;
 import cn.hutool.core.util.StrUtil;
 
-public class Request {
+
+public class Request extends BaseRequest{
 
     private String requestString;
     private String uri;
     private Socket socket;
     private Context context;
     private Service service;
+    private String method;
     public Request(Socket socket, Service service) throws IOException {
         this.socket = socket;
         this.service = service;
@@ -27,12 +25,17 @@ public class Request {
             return;
         parseUri();
         parseContext();
+        parseMethod();
         if(!"/".equals(context.getPath())){
             uri = StrUtil.removePrefix(uri, context.getPath());
             if(StrUtil.isEmpty(uri))
                 uri = "/";
         }
 
+    }
+
+    private void parseMethod() {
+        method = StrUtil.subBefore(requestString, " ", false);
     }
 
     private void parseContext() {
@@ -78,6 +81,11 @@ public class Request {
 
     public String getRequestString(){
         return requestString;
+    }
+
+    @Override
+    public String getMethod() {
+        return method;
     }
 
 }

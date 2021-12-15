@@ -1,37 +1,30 @@
 package com.job.http;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 
-public class Response {
+
+public class Response extends BaseResponse {
     private StringWriter stringWriter;
-    private PrintWriter printWriter;
+    private PrintWriter writer;
     private String contentType;
     private byte[] body;
     public Response(){
-        this.contentType="text/html";
-        this.stringWriter=new StringWriter();
-        this.printWriter=new PrintWriter(stringWriter);
-    }
-
-    public PrintWriter getWriter() {
-        return printWriter;
+        this.stringWriter = new StringWriter();
+        this.writer = new PrintWriter(stringWriter);
+        this.contentType = "text/html";
     }
 
     public String getContentType() {
         return contentType;
     }
-
-
     public void setContentType(String contentType) {
         this.contentType = contentType;
     }
-
-    public void setBody(byte[] body) {
-        this.body = body;
+    public PrintWriter getWriter() {
+        return writer;
     }
-
     public byte[] getBody() throws UnsupportedEncodingException {
         if(null==body) {
             String content = stringWriter.toString();
@@ -39,4 +32,9 @@ public class Response {
         }
         return body;
     }
+
+    public void setBody(byte[] body) {
+        this.body = body;
+    }
+
 }

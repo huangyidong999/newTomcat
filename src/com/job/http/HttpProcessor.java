@@ -2,11 +2,14 @@ package com.job.http;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.ArrayUtil;
+import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
 import com.job.catalina.Context;
+import com.job.servlets.InvokerServlet;
 import com.job.util.Constant;
 import com.job.util.WebXMLUtil;
+import com.job.webappservlet.HelloServlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,31 +24,38 @@ public class HttpProcessor {
                 return;
 
             Context context = request.getContext();
+            String servletClassName = context.getServletClassName(uri);
 
-            if("/500.html".equals(uri)){
-                throw new Exception("this is a deliberately created exception");
-            }
-
-            if("/".equals(uri))
-                uri = WebXMLUtil.getWelcomeFile(request.getContext());
-
-            String fileName = StrUtil.removePrefix(uri, "/");
-            File file = FileUtil.file(context.getDocBase(),fileName);
-
-            if(file.exists()){
-                String extName = FileUtil.extName(file);
-                String mimeType = WebXMLUtil.getMimeType(extName);
-                response.setContentType(mimeType);
-
-                byte body[] = FileUtil.readBytes(file);
-                response.setBody(body);
-
-                if(fileName.equals("timeConsume.html"))
-                    ThreadUtil.sleep(1000);
+            if(null!=servletClassName){
+                InvokerServlet.getInstance().service(request,response);
             }
             else{
-                handle404(s, uri);
-                return;
+                if("/500.html".equals(uri)){
+                    throw new Exception("this is a deliberately created exception");
+                }
+                else{
+                    if("/".equals(uri))
+                        uri = WebXMLUtil.getWelcomeFile(request.getContext());
+
+                    String fileName = StrUtil.removePrefix(uri, "/");
+                    File file = FileUtil.file(context.getDocBase(),fileName);
+
+                    if(file.exists()){
+                        String extName = FileUtil.extName(file);
+                        String mimeType = WebXMLUtil.getMimeType(extName);
+                        response.setContentType(mimeType);
+
+                        byte body[] = FileUtil.readBytes(file);
+                        response.setBody(body);
+
+                        if(fileName.equals("timeConsume.html"))
+                            ThreadUtil.sleep(1000);
+                    }
+                    else{
+                        handle404(s, uri);
+                        return;
+                    }
+                }
             }
             handle200(s, response);
         } catch (Exception e) {
