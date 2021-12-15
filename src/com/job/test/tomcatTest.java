@@ -96,12 +96,7 @@ public class tomcatTest {
         containAssert(response, "Content-Type: text/plain");
     }
 
-    @Test
-    public void testPNG() {
-        byte[] bytes = getContentBytes("/logo.png");
-        int pngFileLength = 1672;
-        Assert.assertEquals(pngFileLength, bytes.length);
-    }
+
 
     @Test
     public void testPDF() {

@@ -4,6 +4,8 @@ import cn.hutool.core.util.ReflectUtil;
 import com.job.catalina.Context;
 import com.job.http.Request;
 import com.job.http.Response;
+import com.job.util.Constant;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +34,9 @@ public class InvokerServlet extends HttpServlet {
 
         Object servletObject = ReflectUtil.newInstance(servletClassName);
         ReflectUtil.invoke(servletObject, "service", request, response);
+
+        response.setStatus(Constant.CODE_200);
+
     }
 
 }
