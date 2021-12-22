@@ -5,6 +5,7 @@ import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
+import com.job.classloader.WebappClassLoader;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -22,25 +23,33 @@ public class Context {
     private File contextWebXmlFile;
 
     private Map<String, String> url_servletClassName;
-    private Map<String, String> url_servletName;
+    private Map<String, String> url_ServletName;
     private Map<String, String> servletName_className;
     private Map<String, String> className_servletName;
 
+    private WebappClassLoader webappClassLoader;
+
     public Context(String path, String docBase) {
+        TimeInterval timeInterval = DateUtil.timer();
         this.path = path;
         this.docBase = docBase;
         this.contextWebXmlFile = new File(docBase, ContextXMLUtil.getWatchedResource());
+
         this.url_servletClassName = new HashMap<>();
-        this.url_servletName = new HashMap<>();
+        this.url_ServletName = new HashMap<>();
         this.servletName_className = new HashMap<>();
         this.className_servletName = new HashMap<>();
 
+        ClassLoader commonClassLoader = Thread.currentThread().getContextClassLoader();
+        this.webappClassLoader = new WebappClassLoader(docBase, commonClassLoader);
+
+        LogFactory.get().info("Deploying web application directory {}", this.docBase);
         deploy();
+        LogFactory.get().info("Deployment of web application directory {} has finished in {} ms", this.docBase,timeInterval.intervalMs());
     }
 
     private void deploy() {
         TimeInterval timeInterval = DateUtil.timer();
-        LogFactory.get().info("Deploying web application directory {}", this.docBase);
         init();
         LogFactory.get().info("Deployment of web application directory {} has finished in {} ms",this.getDocBase(),timeInterval.intervalMs());
     }
@@ -60,6 +69,7 @@ public class Context {
         String xml = FileUtil.readUtf8String(contextWebXmlFile);
         Document d = Jsoup.parse(xml);
         parseServletMapping(d);
+        System.out.println(url_servletClassName);
     }
 
     private void parseServletMapping(Document d) {
@@ -68,7 +78,7 @@ public class Context {
         for (Element mappingurlElement : mappingurlElements) {
             String urlPattern = mappingurlElement.text();
             String servletName = mappingurlElement.parent().select("servlet-name").first().text();
-            url_servletName.put(urlPattern, servletName);
+            url_ServletName.put(urlPattern, servletName);
         }
         // servletName_className / className_servletName
         Elements servletNameElements = d.select("servlet servlet-name");
@@ -79,9 +89,9 @@ public class Context {
             className_servletName.put(servletClass, servletName);
         }
         // url_servletClassName
-        Set<String> urls = url_servletName.keySet();
+        Set<String> urls = url_ServletName.keySet();
         for (String url : urls) {
-            String servletName = url_servletName.get(url);
+            String servletName = url_ServletName.get(url);
             String servletClassName = servletName_className.get(servletName);
             url_servletClassName.put(url, servletClassName);
         }
@@ -104,6 +114,7 @@ public class Context {
                 throw new WebConfigDuplicatedException(StrUtil.format(desc, contentPre));
             }
         }
+
     }
 
     private void checkDuplicated() throws WebConfigDuplicatedException {
@@ -133,5 +144,9 @@ public class Context {
 
     public void setDocBase(String docBase) {
         this.docBase = docBase;
+    }
+
+    public WebappClassLoader getWebappClassLoader() {
+        return webappClassLoader;
     }
 }

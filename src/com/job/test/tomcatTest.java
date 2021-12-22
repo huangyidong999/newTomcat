@@ -9,7 +9,6 @@ import org.apache.tomcat.util.threads.ThreadPoolExecutor;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -90,6 +89,11 @@ public class tomcatTest {
         Assert.assertTrue(duration < 3000);
     }
 
+    @Test
+    public void testJavawebHello() {
+        String html = getContentString("/javaweb/hello");
+        Assert.assertEquals(html,"Hello DIY Tomcat from HelloServlet@javaweb");
+    }
     @Test
     public void testaTxt() {
         String response  = getHttpString("/a.txt");
