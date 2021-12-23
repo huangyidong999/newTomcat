@@ -6,10 +6,10 @@ import com.job.catalina.Context;
 import com.job.servlets.DefaultServlet;
 import com.job.servlets.InvokerServlet;
 import com.job.util.Constant;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+
 
 public class HttpProcessor {
     public void execute(Socket s, Request request, Response response){
@@ -51,11 +51,11 @@ public class HttpProcessor {
     private static void handle200(Socket s, Response response) throws IOException {
         String contentType = response.getContentType();
         String headText = Constant.response_head_202;
-        headText = StrUtil.format(headText, contentType);
+        String cookiesHeader = response.getCookiesHeader();
+        headText = StrUtil.format(headText, contentType, cookiesHeader);
         byte[] head = headText.getBytes();
 
         byte[] body = response.getBody();
-
         byte[] responseBytes = new byte[head.length + body.length];
         ArrayUtil.copy(head, 0, responseBytes, 0, head.length);
         ArrayUtil.copy(body, 0, responseBytes, head.length, body.length);

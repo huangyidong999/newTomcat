@@ -1,6 +1,7 @@
 package com.job.test;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
+import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
@@ -10,6 +11,12 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -18,54 +25,22 @@ import static com.job.util.MiniBrowser.getContentBytes;
 public class tomcatTest {
     private static int port = 18080;
     private static String ip = "127.0.0.1";
-
-    /**
-     * 使用Junit的@BeforeClass检测diyTomcat是否已经启动
-     **/
     @BeforeClass
     public static void beforeClass() {
-        if (NetUtil.isUsableLocalPort(port)) {
-            System.err.println("18080端口没有打开，请先打开diyTomcat");
+        //所有测试开始前看diy tomcat 是否已经启动了
+        if(NetUtil.isUsableLocalPort(port)) {
+            System.err.println("请先启动 位于端口: " +port+ " 的diy tomcat，否则无法进行单元测试");
             System.exit(1);
-        } else {
-            System.out.println("diyTomcat已经启动");
+        }
+        else {
+            System.out.println("检测到 diy tomcat已经启动，开始进行单元测试");
         }
     }
 
     @Test
-    public void test500() {
-        String response  = getHttpString("/500.html");
-        containAssert(response, "HTTP/1.1 500 Internal Server Error");
-    }
-
-
-    /**
-     * 使用Junit的@Test注解进行测试
-     **/
-    @Test
-    public void testDiyTomcat() {
-        /*请求返回String类型的内容字符串*/
+    public void testHelloTomcat() {
         String html = getContentString("/");
-        /*利用Junit的Assert进行返回内容的对比*/
-        Assert.assertEquals(html, "Hello I hope I will get a job");
-    }
-
-    //test
-    @Test
-    public  void  testaHtml(){
-        String html = getContentString("/a");
-        Assert.assertEquals(html,"Hello I hope I will get a job");
-    }
-
-    @Test
-    public void testIndex() {
-        String html = getContentString("/a/index.html");
-        Assert.assertEquals(html,"Hello I hope I will get a job");
-    }
-    @Test
-    public void testbIndex() {
-        String html = getContentString("/b/");
-        Assert.assertEquals(html,"Hello I hope I will get a job");
+        Assert.assertEquals(html,"Hello DIY Tomcat from how2j.cn");
     }
 
     @Test
@@ -90,56 +65,122 @@ public class tomcatTest {
     }
 
     @Test
-    public void testJavawebHello() {
-        String html = getContentString("/javaweb/hello");
-        Assert.assertEquals(html,"Hello DIY Tomcat from HelloServlet@javaweb");
+    public void testaIndex() {
+        String html = getContentString("/a");
+        Assert.assertEquals(html,"Hello I hope I will get a job");
     }
+
+    @Test
+    public void testbIndex() {
+        String html = getContentString("/b/");
+        Assert.assertEquals(html,"Hello I hope I will get a job");
+    }
+
+    @Test
+    public void test404() {
+        String response  = getHttpString("/not_exist.html");
+        containAssert(response, "HTTP/1.1 404 Not Found");
+    }
+    @Test
+    public void test500() {
+        String response  = getHttpString("/500.html");
+        containAssert(response, "HTTP/1.1 500 Internal Server Error");
+    }
+
     @Test
     public void testaTxt() {
         String response  = getHttpString("/a.txt");
         containAssert(response, "Content-Type: text/plain");
     }
 
-
-
+    @Test
+    public void testPNG() {
+        byte[] bytes = getContentBytes("/logo.png");
+        int pngFileLength = 1672;
+        Assert.assertEquals(pngFileLength, bytes.length);
+    }
     @Test
     public void testPDF() {
-        String uri = "/etf.pdf";
-        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        HttpUtil.download(url, baos, true);
-        int pdfFileLength = 3590775;
-        Assert.assertEquals(pdfFileLength, baos.toByteArray().length);
+        byte[] bytes = getContentBytes("/etf.pdf");
+        int pngFileLength = 3590775;
+        Assert.assertEquals(pngFileLength, bytes.length);
     }
-
-
 
     @Test
     public void testhello() {
         String html = getContentString("/j2ee/hello");
-        Assert.assertEquals(html,"Hello I hope I will get a job");
+        Assert.assertEquals(html,"Hello DIY Tomcat from HelloServlet");
     }
 
-    /**
-     * build a request from browser
-     **/
-    public String getContentString(String uri) {
-        String url = StrUtil.format("http://{}:{}{}", ip, port, uri);
-        return MiniBrowser.getContentString(url);
+    @Test
+    public void testJavawebHello() {
+        String html = getContentString("/javaweb/hello");
+        containAssert(html,"Hello DIY Tomcat from HelloServlet@javaweb");
     }
 
-    /***
-     * this method is to get the response inseaded of only content
-     * ***/
+    @Test
+    public void testJavawebHelloSingleton() {
+        String html1 = getContentString("/javaweb/hello");
+        String html2 = getContentString("/javaweb/hello");
+        Assert.assertEquals(html1,html2);
+    }
+    @Test
+    public void testgetParam() {
+        String uri = "/j2ee/param";
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        Map<String,Object> params = new HashMap<>();
+        params.put("name","meepo");
+        String html = MiniBrowser.getContentString(url, params, true);
+        Assert.assertEquals(html,"get name:meepo");
+    }
+    @Test
+    public void testpostParam() {
+        String uri = "/j2ee/param";
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        Map<String,Object> params = new HashMap<>();
+        params.put("name","meepo");
+        String html = MiniBrowser.getContentString(url, params, false);
+        Assert.assertEquals(html,"post name:meepo");
+
+    }
+    private byte[] getContentBytes(String uri) {
+        return getContentBytes(uri,false);
+    }
+    private byte[] getContentBytes(String uri,boolean gzip) {
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        return MiniBrowser.getContentBytes(url,false);
+    }
+    private String getContentString(String uri) {
+        String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
+        String content = MiniBrowser.getContentString(url);
+        return content;
+    }
     private String getHttpString(String uri) {
         String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
         String http = MiniBrowser.getHttpString(url);
         return http;
     }
 
+    @Test
+    public void testheader() {
+        String html = getContentString("/j2ee/header");
+        Assert.assertEquals(html,"how2j mini brower / java1.8");
+    }
+
+    @Test
+    public void testgetCookie() throws IOException {
+        String url = StrUtil.format("http://{}:{}{}", ip,port,"/j2ee/getCookie");
+        URL u = new URL(url);
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+        conn.setRequestProperty("Cookie","name=Gareen(cookie)");
+        conn.connect();
+        InputStream is = conn.getInputStream();
+        String html = IoUtil.read(is, "utf-8");
+        containAssert(html,"name:Gareen(cookie)");
+    }
+
     private void containAssert(String html, String string) {
         boolean match = StrUtil.containsAny(html, string);
         Assert.assertTrue(match);
     }
-
 }

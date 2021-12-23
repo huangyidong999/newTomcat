@@ -1,230 +1,58 @@
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
 INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
-12 22, 2021 02:51:56 上午 com.job.catalina.Context deploy
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 0 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 474 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 777 ms
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
 INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
-12 22, 2021 02:51:56 上午 com.job.catalina.Context deploy
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 15 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 15 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 13 ms
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
 INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
-12 22, 2021 02:51:56 上午 com.job.catalina.Context deploy
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 16 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 4 ms
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
 INFO : Deploying web application directory F:/project/myTomcat/b
-12 22, 2021 02:51:56 上午 com.job.catalina.Context deploy
-INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 1 ms
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
 INFO : Deploying web application directory F:/project/javaweb/web
-12 22, 2021 02:51:56 上午 com.job.catalina.Context deploy
-INFO : Deployment of web application directory F:/project/javaweb/web has finished in 0 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/javaweb/web has finished in 0 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 13 ms
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : Server version:		How2J DiyTomcat/1.0.1
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : Server built:		2020-04-08 10:20:22
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : Server number:		1.0.1
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : OS Name	:		Windows 10
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : OS Version:		10.0
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : Architecture:		amd64
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : JVM Version:		1.8.0_312-b07
-12 22, 2021 02:51:56 上午 com.job.catalina.Server logJVM
+12 23, 2021 04:20:29 上午 com.job.catalina.Server logJVM
 INFO : JVM Vendor:		Oracle Corporation
-12 22, 2021 02:51:56 上午 com.job.catalina.Connector init
+12 23, 2021 04:20:29 上午 com.job.catalina.Connector init
 INFO : Initializing ProtocolHandler [http-bio-18080]
-12 22, 2021 02:51:56 上午 com.job.catalina.Connector init
+12 23, 2021 04:20:29 上午 com.job.catalina.Connector init
 INFO : Initializing ProtocolHandler [http-bio-18081]
-12 22, 2021 02:51:56 上午 com.job.catalina.Connector init
+12 23, 2021 04:20:29 上午 com.job.catalina.Connector init
 INFO : Initializing ProtocolHandler [http-bio-18082]
-12 22, 2021 02:51:56 上午 com.job.catalina.Service init
-INFO : Initialization processed in 16 ms
-12 22, 2021 02:51:56 上午 com.job.catalina.Connector start
+12 23, 2021 04:20:29 上午 com.job.catalina.Service init
+INFO : Initialization processed in 2 ms
+12 23, 2021 04:20:29 上午 com.job.catalina.Connector start
 INFO : Starting ProtocolHandler [http-bio-18080]
-12 22, 2021 02:51:56 上午 com.job.catalina.Connector start
+12 23, 2021 04:20:29 上午 com.job.catalina.Connector start
 INFO : Starting ProtocolHandler [http-bio-18081]
-12 22, 2021 02:51:56 上午 com.job.catalina.Connector start
+12 23, 2021 04:20:29 上午 com.job.catalina.Connector start
 INFO : Starting ProtocolHandler [http-bio-18082]
-12 22, 2021 02:51:56 上午 com.job.catalina.Server start
-INFO : Server startup in 63 ms
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 484 ms
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 15 ms
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:/project/myTomcat/b
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:/project/javaweb/web
-12 22, 2021 21:21:23 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/javaweb/web has finished in 15 ms
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : Server version:		How2J DiyTomcat/1.0.1
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : Server built:		2020-04-08 10:20:22
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : Server number:		1.0.1
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : OS Name	:		Windows 10
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : OS Version:		10.0
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : Architecture:		amd64
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : JVM Version:		1.8.0_312-b07
-12 22, 2021 21:21:23 下午 com.job.catalina.Server logJVM
-INFO : JVM Vendor:		Oracle Corporation
-12 22, 2021 21:21:23 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18080]
-12 22, 2021 21:21:23 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18081]
-12 22, 2021 21:21:23 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18082]
-12 22, 2021 21:21:23 下午 com.job.catalina.Service init
-INFO : Initialization processed in 0 ms
-12 22, 2021 21:21:23 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18080]
-12 22, 2021 21:21:23 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18081]
-12 22, 2021 21:21:23 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18082]
-12 22, 2021 21:21:23 下午 com.job.catalina.Server start
-INFO : Server startup in 0 ms
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 187 ms
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 0 ms
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:/project/myTomcat/b
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:/project/javaweb/web
-12 22, 2021 21:25:10 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/javaweb/web has finished in 0 ms
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : Server version:		How2J DiyTomcat/1.0.1
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : Server built:		2020-04-08 10:20:22
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : Server number:		1.0.1
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : OS Name	:		Windows 10
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : OS Version:		10.0
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : Architecture:		amd64
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : JVM Version:		1.8.0_312-b07
-12 22, 2021 21:25:10 下午 com.job.catalina.Server logJVM
-INFO : JVM Vendor:		Oracle Corporation
-12 22, 2021 21:25:10 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18080]
-12 22, 2021 21:25:10 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18081]
-12 22, 2021 21:25:10 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18082]
-12 22, 2021 21:25:10 下午 com.job.catalina.Service init
-INFO : Initialization processed in 0 ms
-12 22, 2021 21:25:10 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18080]
-12 22, 2021 21:25:10 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18081]
-12 22, 2021 21:25:10 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18082]
-12 22, 2021 21:25:10 下午 com.job.catalina.Server start
-INFO : Server startup in 16 ms
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 266 ms
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 16 ms
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:/project/myTomcat/b
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deploying web application directory F:/project/javaweb/web
-12 22, 2021 21:42:05 下午 com.job.catalina.Context <init>
-INFO : Deployment of web application directory F:/project/javaweb/web has finished in 0 ms
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : Server version:		How2J DiyTomcat/1.0.1
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : Server built:		2020-04-08 10:20:22
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : Server number:		1.0.1
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : OS Name	:		Windows 10
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : OS Version:		10.0
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : Architecture:		amd64
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : JVM Version:		1.8.0_312-b07
-12 22, 2021 21:42:05 下午 com.job.catalina.Server logJVM
-INFO : JVM Vendor:		Oracle Corporation
-12 22, 2021 21:42:05 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18080]
-12 22, 2021 21:42:05 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18081]
-12 22, 2021 21:42:05 下午 com.job.catalina.Connector init
-INFO : Initializing ProtocolHandler [http-bio-18082]
-12 22, 2021 21:42:05 下午 com.job.catalina.Service init
-INFO : Initialization processed in 0 ms
-12 22, 2021 21:42:05 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18080]
-12 22, 2021 21:42:05 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18081]
-12 22, 2021 21:42:05 下午 com.job.catalina.Connector start
-INFO : Starting ProtocolHandler [http-bio-18082]
-12 22, 2021 21:42:05 下午 com.job.catalina.Server start
-INFO : Server startup in 16 ms
-12 22, 2021 21:42:16 下午 com.job.http.HttpProcessor error
+12 23, 2021 04:20:29 上午 com.job.catalina.Server start
+INFO : Server startup in 13 ms
+12 23, 2021 04:20:36 上午 com.job.http.HttpProcessor error
 ERROR: this is a deliberately created exception
 java.lang.RuntimeException: this is a deliberately created exception
 	at com.job.servlets.DefaultServlet.service(DefaultServlet.java:38)
@@ -233,3 +61,771 @@ java.lang.RuntimeException: this is a deliberately created exception
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
+12 23, 2021 04:45:47 上午 com.job.watcher.ContextFileChangeWatcher$1 dealWith
+INFO : com.job.watcher.ContextFileChangeWatcher@6256d27d 检测到了Web应用下的重要文件变化 web.xml 
+12 23, 2021 04:45:47 上午 com.job.catalina.Host reload
+INFO : Reloading Context with name [/javaweb] has started
+12 23, 2021 04:45:47 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 04:45:47 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 5 ms
+12 23, 2021 04:45:47 上午 com.job.catalina.Host reload
+INFO : Reloading Context with name [/javaweb] has completed
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 291 ms
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 8 ms
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 3 ms
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 2 ms
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 04:48:38 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 5 ms
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 04:48:38 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 04:48:38 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 04:48:38 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 04:48:38 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 04:48:38 上午 com.job.catalina.Service init
+INFO : Initialization processed in 1 ms
+12 23, 2021 04:48:38 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 04:48:38 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 04:48:38 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 04:48:38 上午 com.job.catalina.Server start
+INFO : Server startup in 9 ms
+12 23, 2021 04:48:48 上午 com.job.http.HttpProcessor error
+ERROR: this is a deliberately created exception
+java.lang.RuntimeException: this is a deliberately created exception
+	at com.job.servlets.DefaultServlet.service(DefaultServlet.java:38)
+	at com.job.http.HttpProcessor.execute(HttpProcessor.java:27)
+	at com.job.catalina.Connector$1.run(Connector.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 270 ms
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 7 ms
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 1 ms
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 2 ms
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 04:51:19 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 5 ms
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 04:51:19 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 04:51:19 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 04:51:19 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 04:51:19 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 04:51:19 上午 com.job.catalina.Service init
+INFO : Initialization processed in 2 ms
+12 23, 2021 04:51:19 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 04:51:19 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 04:51:19 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 04:51:19 上午 com.job.catalina.Server start
+INFO : Server startup in 10 ms
+12 23, 2021 04:51:26 上午 com.job.http.HttpProcessor error
+ERROR: this is a deliberately created exception
+java.lang.RuntimeException: this is a deliberately created exception
+	at com.job.servlets.DefaultServlet.service(DefaultServlet.java:38)
+	at com.job.http.HttpProcessor.execute(HttpProcessor.java:27)
+	at com.job.catalina.Connector$1.run(Connector.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 234 ms
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 7 ms
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 2 ms
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 2 ms
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 04:52:24 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 6 ms
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 04:52:24 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 04:52:24 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 04:52:24 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 04:52:24 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 04:52:24 上午 com.job.catalina.Service init
+INFO : Initialization processed in 1 ms
+12 23, 2021 04:52:24 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 04:52:24 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 04:52:24 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 04:52:24 上午 com.job.catalina.Server start
+INFO : Server startup in 16 ms
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 207 ms
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 7 ms
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 2 ms
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 1 ms
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 04:54:51 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 4 ms
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 04:54:51 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 04:54:51 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 04:54:51 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 04:54:51 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 04:54:51 上午 com.job.catalina.Service init
+INFO : Initialization processed in 1 ms
+12 23, 2021 04:54:51 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 04:54:51 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 04:54:51 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 04:54:51 上午 com.job.catalina.Server start
+INFO : Server startup in 10 ms
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 193 ms
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 7 ms
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 4 ms
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 2 ms
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 04:56:43 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 5 ms
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 04:56:43 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 04:56:43 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 04:56:43 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 04:56:43 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 04:56:43 上午 com.job.catalina.Service init
+INFO : Initialization processed in 1 ms
+12 23, 2021 04:56:43 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 04:56:43 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 04:56:43 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 04:56:43 上午 com.job.catalina.Server start
+INFO : Server startup in 8 ms
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 212 ms
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 6 ms
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 2 ms
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 2 ms
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 04:58:20 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 5 ms
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 04:58:20 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 04:58:20 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 04:58:20 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 04:58:20 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 04:58:20 上午 com.job.catalina.Service init
+INFO : Initialization processed in 1 ms
+12 23, 2021 04:58:20 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 04:58:20 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 04:58:20 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 04:58:20 上午 com.job.catalina.Server start
+INFO : Server startup in 8 ms
+12 23, 2021 05:01:06 上午 com.job.watcher.ContextFileChangeWatcher$1 dealWith
+INFO : com.job.watcher.ContextFileChangeWatcher@14c3ad9 检测到了Web应用下的重要文件变化 web.xml 
+12 23, 2021 05:01:06 上午 com.job.catalina.Host reload
+INFO : Reloading Context with name [/j2ee] has started
+12 23, 2021 05:01:06 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 05:01:06 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 5 ms
+12 23, 2021 05:01:06 上午 com.job.catalina.Host reload
+INFO : Reloading Context with name [/j2ee] has completed
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 429 ms
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 8 ms
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 2 ms
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 1 ms
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 05:01:28 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 7 ms
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 05:01:28 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 05:01:28 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 05:01:28 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 05:01:28 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 05:01:28 上午 com.job.catalina.Service init
+INFO : Initialization processed in 2 ms
+12 23, 2021 05:01:28 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 05:01:28 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 05:01:28 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 05:01:28 上午 com.job.catalina.Server start
+INFO : Server startup in 18 ms
+12 23, 2021 05:02:32 上午 com.job.http.HttpProcessor error
+ERROR: this is a deliberately created exception
+java.lang.RuntimeException: this is a deliberately created exception
+	at com.job.servlets.DefaultServlet.service(DefaultServlet.java:38)
+	at com.job.http.HttpProcessor.execute(HttpProcessor.java:27)
+	at com.job.catalina.Connector$1.run(Connector.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 187 ms
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 16 ms
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 06:34:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 0 ms
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 06:34:34 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 06:34:34 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 06:34:34 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 06:34:34 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 06:34:34 上午 com.job.catalina.Service init
+INFO : Initialization processed in 0 ms
+12 23, 2021 06:34:34 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 06:34:34 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 06:34:34 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 06:34:34 上午 com.job.catalina.Server start
+INFO : Server startup in 1 ms
+12 23, 2021 07:13:46 上午 com.job.watcher.ContextFileChangeWatcher$1 dealWith
+INFO : com.job.watcher.ContextFileChangeWatcher@26802f22 检测到了Web应用下的重要文件变化 web.xml 
+12 23, 2021 07:13:46 上午 com.job.catalina.Host reload
+INFO : Reloading Context with name [/j2ee] has started
+12 23, 2021 07:13:46 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 07:13:46 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 5 ms
+12 23, 2021 07:13:46 上午 com.job.catalina.Host reload
+INFO : Reloading Context with name [/j2ee] has completed
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 172 ms
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 16 ms
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 07:16:34 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 31 ms
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 07:16:34 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 07:16:34 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 07:16:34 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 07:16:34 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 07:16:34 上午 com.job.catalina.Service init
+INFO : Initialization processed in 0 ms
+12 23, 2021 07:16:34 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 07:16:34 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 07:16:34 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 07:16:34 上午 com.job.catalina.Server start
+INFO : Server startup in 16 ms
+12 23, 2021 07:22:52 上午 com.job.http.HttpProcessor error
+ERROR: this is a deliberately created exception
+java.lang.RuntimeException: this is a deliberately created exception
+	at com.job.servlets.DefaultServlet.service(DefaultServlet.java:38)
+	at com.job.http.HttpProcessor.execute(HttpProcessor.java:27)
+	at com.job.catalina.Connector$1.run(Connector.java:48)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 175 ms
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 31 ms
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 07:36:39 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 0 ms
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 07:36:39 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 07:36:39 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 07:36:39 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 07:36:39 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 07:36:39 上午 com.job.catalina.Service init
+INFO : Initialization processed in 0 ms
+12 23, 2021 07:36:39 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 07:36:39 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 07:36:39 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 07:36:39 上午 com.job.catalina.Server start
+INFO : Server startup in 0 ms
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 187 ms
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 16 ms
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 0 ms
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 16 ms
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 07:37:16 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 0 ms
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 07:37:16 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 07:37:16 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 07:37:16 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 07:37:16 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 07:37:16 上午 com.job.catalina.Service init
+INFO : Initialization processed in 0 ms
+12 23, 2021 07:37:16 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 07:37:16 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 07:37:16 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 07:37:16 上午 com.job.catalina.Server start
+INFO : Server startup in 0 ms
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 234 ms
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 78 ms
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 16 ms
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 0 ms
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 08:29:59 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 32 ms
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 08:29:59 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 08:29:59 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 08:29:59 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 08:29:59 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 08:29:59 上午 com.job.catalina.Service init
+INFO : Initialization processed in 0 ms
+12 23, 2021 08:29:59 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 08:29:59 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 08:29:59 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 08:29:59 上午 com.job.catalina.Server start
+INFO : Server startup in 15 ms
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\a
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\a has finished in 219 ms
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\j2ee
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\j2ee has finished in 9 ms
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:\Project\myTomcat\webapps\ROOT
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:\Project\myTomcat\webapps\ROOT has finished in 3 ms
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/myTomcat/b
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/myTomcat/b has finished in 4 ms
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deploying web application directory F:/project/javaweb/web
+12 23, 2021 08:52:26 上午 com.job.catalina.Context <init>
+INFO : Deployment of web application directory F:/project/javaweb/web has finished in 38 ms
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : Server version:		How2J DiyTomcat/1.0.1
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : Server built:		2020-04-08 10:20:22
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : Server number:		1.0.1
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : OS Name	:		Windows 10
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : OS Version:		10.0
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : Architecture:		amd64
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : Java Home:		C:\Users\h2923\.jdks\corretto-1.8.0_312\jre
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : JVM Version:		1.8.0_312-b07
+12 23, 2021 08:52:26 上午 com.job.catalina.Server logJVM
+INFO : JVM Vendor:		Oracle Corporation
+12 23, 2021 08:52:26 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18080]
+12 23, 2021 08:52:26 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18081]
+12 23, 2021 08:52:26 上午 com.job.catalina.Connector init
+INFO : Initializing ProtocolHandler [http-bio-18082]
+12 23, 2021 08:52:26 上午 com.job.catalina.Service init
+INFO : Initialization processed in 8 ms
+12 23, 2021 08:52:26 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18080]
+12 23, 2021 08:52:26 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18081]
+12 23, 2021 08:52:26 上午 com.job.catalina.Connector start
+INFO : Starting ProtocolHandler [http-bio-18082]
+12 23, 2021 08:52:26 上午 com.job.catalina.Server start
+INFO : Server startup in 25 ms
