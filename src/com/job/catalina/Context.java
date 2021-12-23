@@ -6,6 +6,8 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
 import com.job.classloader.WebappClassLoader;
+import com.job.http.ApplicationContext;
+import com.job.watcher.ContextFileChangeWatcher;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,8 +16,11 @@ import java.io.File;
 import java.util.*;
 import com.job.exception.WebConfigDuplicatedException;
 import com.job.util.ContextXMLUtil;
+
+import javax.servlet.ServletContext;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class Context {
     private String path;
@@ -29,8 +34,16 @@ public class Context {
 
     private WebappClassLoader webappClassLoader;
 
-    public Context(String path, String docBase) {
+    private Host host;
+    private boolean reloadable;
+    private ContextFileChangeWatcher contextFileChangeWatcher;
+
+    private ServletContext servletContext;
+    public Context(String path, String docBase, Host host, boolean reloadable) {
         TimeInterval timeInterval = DateUtil.timer();
+        this.host = host;
+        this.reloadable = reloadable;
+
         this.path = path;
         this.docBase = docBase;
         this.contextWebXmlFile = new File(docBase, ContextXMLUtil.getWatchedResource());
@@ -40,6 +53,8 @@ public class Context {
         this.servletName_className = new HashMap<>();
         this.className_servletName = new HashMap<>();
 
+        this.servletContext = new ApplicationContext(this);
+
         ClassLoader commonClassLoader = Thread.currentThread().getContextClassLoader();
         this.webappClassLoader = new WebappClassLoader(docBase, commonClassLoader);
 
@@ -48,10 +63,17 @@ public class Context {
         LogFactory.get().info("Deployment of web application directory {} has finished in {} ms", this.docBase,timeInterval.intervalMs());
     }
 
+    public void reload() {
+        host.reload(this);
+    }
+
     private void deploy() {
-        TimeInterval timeInterval = DateUtil.timer();
         init();
-        LogFactory.get().info("Deployment of web application directory {} has finished in {} ms",this.getDocBase(),timeInterval.intervalMs());
+
+        if(reloadable){
+            contextFileChangeWatcher = new ContextFileChangeWatcher(this);
+            contextFileChangeWatcher.start();
+        }
     }
 
     private void init() {
@@ -69,7 +91,6 @@ public class Context {
         String xml = FileUtil.readUtf8String(contextWebXmlFile);
         Document d = Jsoup.parse(xml);
         parseServletMapping(d);
-        System.out.println(url_servletClassName);
     }
 
     private void parseServletMapping(Document d) {
@@ -148,5 +169,22 @@ public class Context {
 
     public WebappClassLoader getWebappClassLoader() {
         return webappClassLoader;
+    }
+
+    public void stop() {
+        webappClassLoader.stop();
+        contextFileChangeWatcher.stop();
+    }
+
+    public boolean isReloadable() {
+        return reloadable;
+    }
+
+    public void setReloadable(boolean reloadable) {
+        this.reloadable = reloadable;
+    }
+
+    public ServletContext getServletContext() {
+        return servletContext;
     }
 }

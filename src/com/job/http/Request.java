@@ -8,6 +8,8 @@ import com.job.catalina.Service;
 import com.job.util.MiniBrowser;
 import cn.hutool.core.util.StrUtil;
 
+import javax.servlet.ServletContext;
+
 
 public class Request extends BaseRequest{
 
@@ -86,6 +88,13 @@ public class Request extends BaseRequest{
     @Override
     public String getMethod() {
         return method;
+    }
+
+    public ServletContext getServletContext() {
+        return context.getServletContext();
+    }
+    public String getRealPath(String path) {
+        return getServletContext().getRealPath(path);
     }
 
 }
