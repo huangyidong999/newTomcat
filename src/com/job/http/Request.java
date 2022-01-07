@@ -17,6 +17,7 @@ import com.job.util.MiniBrowser;
 import cn.hutool.core.util.StrUtil;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.io.IoUtil;
@@ -34,6 +35,7 @@ public class Request extends BaseRequest{
     private Map<String, String[]> parameterMap;
     private Map<String, String> headerMap;
     private Cookie[] cookies;
+    private HttpSession session;
     public Request(Socket socket, Service service) throws IOException {
         this.parameterMap = new HashMap();
         this.headerMap = new HashMap<>();
@@ -299,5 +301,21 @@ public class Request extends BaseRequest{
     }
     public Cookie[] getCookies() {
         return cookies;
+    }
+    public String getJSessionIdFromCookie() {
+        if (null == cookies)
+            return null;
+        for (Cookie cookie : cookies) {
+            if ("JSESSIONID".equals(cookie.getName())) {
+                return cookie.getValue();
+            }
+        }
+        return null;
+    }
+    public HttpSession getSession() {
+        return session;
+    }
+    public void setSession(HttpSession session) {
+        this.session = session;
     }
 }

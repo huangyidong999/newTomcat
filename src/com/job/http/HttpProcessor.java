@@ -6,6 +6,9 @@ import com.job.catalina.Context;
 import com.job.servlets.DefaultServlet;
 import com.job.servlets.InvokerServlet;
 import com.job.util.Constant;
+import com.job.util.SessionManager;
+
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -17,6 +20,8 @@ public class HttpProcessor {
             String uri = request.getUri();
             if(null==uri)
                 return;
+
+            prepareSession(request, response);
 
             Context context = request.getContext();
             String servletClassName = context.getServletClassName(uri);
@@ -97,5 +102,10 @@ public class HttpProcessor {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+    public void prepareSession(Request request, Response response) {
+        String jsessionid = request.getJSessionIdFromCookie();
+        HttpSession session = SessionManager.getSession(jsessionid, request, response);
+        request.setSession(session);
     }
 }

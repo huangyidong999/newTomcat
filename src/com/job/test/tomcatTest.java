@@ -179,6 +179,21 @@ public class tomcatTest {
         containAssert(html,"name:Gareen(cookie)");
     }
 
+    @Test
+    public void testSession() throws IOException {
+        String jsessionid = getContentString("/j2ee/setSession");
+        if(null!=jsessionid)
+            jsessionid = jsessionid.trim();
+        String url = StrUtil.format("http://{}:{}{}", ip,port,"/j2ee/getSession");
+        URL u = new URL(url);
+        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+        conn.setRequestProperty("Cookie","JSESSIONID="+jsessionid);
+        conn.connect();
+        InputStream is = conn.getInputStream();
+        String html = IoUtil.read(is, "utf-8");
+        containAssert(html,"Gareen(session)");
+    }
+
     private void containAssert(String html, String string) {
         boolean match = StrUtil.containsAny(html, string);
         Assert.assertTrue(match);
