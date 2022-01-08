@@ -3,27 +3,32 @@ package com.job.catalina;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.IORuntimeException;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.LogFactory;
 import com.job.classloader.WebappClassLoader;
+import com.job.exception.WebConfigDuplicatedException;
 import com.job.http.ApplicationContext;
 import com.job.http.StandardServletConfig;
+import com.job.util.ContextXMLUtil;
 import com.job.watcher.ContextFileChangeWatcher;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.date.TimeInterval;
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.util.ReflectUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.log.LogFactory;
+import org.apache.jasper.compiler.JspRuntimeContext;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
 import java.io.File;
 import java.util.*;
-import com.job.exception.WebConfigDuplicatedException;
-import com.job.util.ContextXMLUtil;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import java.util.HashMap;
-import java.util.Map;
+import org.apache.jasper.JspC;
 
 
 public class Context {
@@ -36,6 +41,13 @@ public class Context {
     private Map<String, String> servletName_className;
     private Map<String, String> className_servletName;
     private Map<String, Map<String, String>> servlet_className_init_params;
+
+    private Map<String, List<String>> url_filterClassName;
+    private Map<String, List<String>> url_FilterNames;
+    private Map<String, String> filterName_className;
+    private Map<String, String> className_filterName;
+    private Map<String, Map<String, String>> filter_className_init_params;
+
     private List<String> loadOnStartupServletClassNames;
 
     private WebappClassLoader webappClassLoader;
@@ -46,6 +58,9 @@ public class Context {
 
     private ServletContext servletContext;
     private Map<Class<?>, HttpServlet> servletPool;
+    private Map<String, Filter> filterPool;
+
+    private List<ServletContextListener> listeners;
 
     public Context(String path, String docBase, Host host, boolean reloadable) {
         TimeInterval timeInterval = DateUtil.timer();
@@ -61,6 +76,13 @@ public class Context {
         this.servletName_className = new HashMap<>();
         this.className_servletName = new HashMap<>();
         this.servlet_className_init_params = new HashMap<>();
+
+        this.url_filterClassName = new HashMap<>();
+        this.url_FilterNames = new HashMap<>();
+        this.filterName_className = new HashMap<>();
+        this.className_filterName = new HashMap<>();
+        this.filter_className_init_params = new HashMap<>();
+
         this.loadOnStartupServletClassNames = new ArrayList<>();
 
         this.servletContext = new ApplicationContext(this);
@@ -69,6 +91,9 @@ public class Context {
         this.webappClassLoader = new WebappClassLoader(docBase, commonClassLoader);
 
         this.servletPool = new HashMap<>();
+        this.filterPool = new HashMap<>();
+
+        listeners=new ArrayList<ServletContextListener>();
 
         LogFactory.get().info("Deploying web application directory {}", this.docBase);
         deploy();
@@ -80,12 +105,17 @@ public class Context {
     }
 
     private void deploy() {
+        loadListeners();
+
         init();
 
         if(reloadable){
             contextFileChangeWatcher = new ContextFileChangeWatcher(this);
             contextFileChangeWatcher.start();
         }
+
+        JspC c = new JspC();
+        new JspRuntimeContext(servletContext, c);
     }
 
     private void init() {
@@ -103,11 +133,17 @@ public class Context {
         String xml = FileUtil.readUtf8String(contextWebXmlFile);
         Document d = Jsoup.parse(xml);
         parseServletMapping(d);
+        parseFilterMapping(d);
+
         parseServletInitParams(d);
+        parseFilterInitParams(d);
+
+        initFilter();
 
         parseLoadOnStartup(d);
         handleLoadOnStartup();
 
+        fireEvent("init");
     }
 
     private void parseServletMapping(Document d) {
@@ -193,6 +229,8 @@ public class Context {
         contextFileChangeWatcher.stop();
 
         destroyServlets();
+
+        fireEvent("destroy");
     }
 
     public boolean isReloadable() {
@@ -276,4 +314,177 @@ public class Context {
             }
         }
     }
+
+    public WebappClassLoader getWebClassLoader() {
+        return webappClassLoader;
+    }
+
+    public void parseFilterMapping(Document d) {
+        // filter_url_name
+        Elements mappingurlElements = d.select("filter-mapping url-pattern");
+        for (Element mappingurlElement : mappingurlElements) {
+            String urlPattern = mappingurlElement.text();
+            String filterName = mappingurlElement.parent().select("filter-name").first().text();
+
+            List<String> filterNames= url_FilterNames.get(urlPattern);
+            if(null==filterNames) {
+                filterNames = new ArrayList<>();
+                url_FilterNames.put(urlPattern, filterNames);
+            }
+            filterNames.add(filterName);
+        }
+        // class_name_filter_name
+        Elements filterNameElements = d.select("filter filter-name");
+        for (Element filterNameElement : filterNameElements) {
+            String filterName = filterNameElement.text();
+            String filterClass = filterNameElement.parent().select("filter-class").first().text();
+            filterName_className.put(filterName, filterClass);
+            className_filterName.put(filterClass, filterName);
+        }
+        // url_filterClassName
+
+        Set<String> urls = url_FilterNames.keySet();
+        for (String url : urls) {
+            List<String> filterNames = url_FilterNames.get(url);
+            if(null == filterNames) {
+                filterNames = new ArrayList<>();
+                url_FilterNames.put(url, filterNames);
+            }
+            for (String filterName : filterNames) {
+                String filterClassName = filterName_className.get(filterName);
+                List<String> filterClassNames = url_filterClassName.get(url);
+                if(null==filterClassNames) {
+                    filterClassNames = new ArrayList<>();
+                    url_filterClassName.put(url, filterClassNames);
+                }
+                filterClassNames.add(filterClassName);
+            }
+        }
+    }
+
+    private void parseFilterInitParams(Document d) {
+        Elements filterClassNameElements = d.select("filter-class");
+        for (Element filterClassNameElement : filterClassNameElements) {
+            String filterClassName = filterClassNameElement.text();
+
+            Elements initElements = filterClassNameElement.parent().select("init-param");
+            if (initElements.isEmpty())
+                continue;
+
+            Map<String, String> initParams = new HashMap<>();
+
+            for (Element element : initElements) {
+                String name = element.select("param-name").get(0).text();
+                String value = element.select("param-value").get(0).text();
+                initParams.put(name, value);
+            }
+
+            filter_className_init_params.put(filterClassName, initParams);
+
+        }
+
+    }
+    private void initFilter() {
+        Set<String> classNames = className_filterName.keySet();
+        for (String className : classNames) {
+            try {
+                Class clazz =  this.getWebClassLoader().loadClass(className);
+                Map<String,String> initParameters = filter_className_init_params.get(className);
+                String filterName = className_filterName.get(className);
+
+                FilterConfig filterConfig = new StandardFilterConfig(servletContext, filterName, initParameters);
+
+                Filter filter = filterPool.get(clazz);
+                if(null==filter) {
+                    filter = (Filter) ReflectUtil.newInstance(clazz);
+                    filter.init(filterConfig);
+                    filterPool.put(className, filter);
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public List<Filter> getMatchedFilters(String uri) {
+        List<Filter> filters = new ArrayList<>();
+        Set<String> patterns = url_filterClassName.keySet();
+        Set<String> matchedPatterns = new HashSet<>();
+
+        for (String pattern : patterns) {
+            if(match(pattern,uri)) {
+                matchedPatterns.add(pattern);
+            }
+        }
+
+        Set<String> matchedFilterClassNames = new HashSet<>();
+        for (String pattern : matchedPatterns) {
+            List<String> filterClassName = url_filterClassName.get(pattern);
+            matchedFilterClassNames.addAll(filterClassName);
+        }
+        for (String filterClassName : matchedFilterClassNames) {
+            Filter filter = filterPool.get(filterClassName);
+            filters.add(filter);
+        }
+        return filters;
+    }
+
+    private boolean match(String pattern, String uri) {
+        // 完全匹配
+        if(StrUtil.equals(pattern, uri))
+            return true;
+
+        // /* 模式
+        if(StrUtil.equals(pattern, "/*"))
+            return true;
+
+        // 后缀名 /*.jsp
+        if(StrUtil.startWith(pattern, "/*.")) {
+            String patternExtName = StrUtil.subAfter(pattern, '.', false);
+            String uriExtName = StrUtil.subAfter(uri, '.', false);
+            if(StrUtil.equals(patternExtName, uriExtName))
+                return true;
+        }
+        // 其他模式就懒得管了
+        return false;
+    }
+    public void addListener(ServletContextListener listener){
+        listeners.add(listener);
+    }
+    public void removeListener(ServletContextListener listener){
+        listeners.remove(listener);
+    }
+
+    private void loadListeners()  {
+        try {
+            if(!contextWebXmlFile.exists())
+                return;
+            String xml = FileUtil.readUtf8String(contextWebXmlFile);
+            Document d = Jsoup.parse(xml);
+
+            Elements es = d.select("listener listener-class");
+            for (Element e : es) {
+                String listenerClassName = e.text();
+
+                Class<?> clazz= this.getWebClassLoader().loadClass(listenerClassName);
+                ServletContextListener listener = (ServletContextListener) clazz.newInstance();
+                addListener(listener);
+
+            }
+        } catch (IORuntimeException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void fireEvent(String type) {
+        ServletContextEvent event = new ServletContextEvent(servletContext);
+        for (ServletContextListener servletContextListener : listeners) {
+            if("init".equals(type))
+                servletContextListener.contextInitialized(event);
+            if("destroy".equals(type))
+                servletContextListener.contextDestroyed(event);
+        }
+    }
+
 }

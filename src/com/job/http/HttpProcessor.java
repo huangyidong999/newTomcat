@@ -1,17 +1,24 @@
 package com.job.http;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.util.ZipUtil;
 import cn.hutool.log.LogFactory;
+import com.job.catalina.ApplicationFilterChain;
+import com.job.catalina.Connector;
 import com.job.catalina.Context;
 import com.job.servlets.DefaultServlet;
 import com.job.servlets.InvokerServlet;
+import com.job.servlets.JspServlet;
 import com.job.util.Constant;
 import com.job.util.SessionManager;
 
+import javax.servlet.Filter;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.List;
 
 
 public class HttpProcessor {
@@ -25,14 +32,28 @@ public class HttpProcessor {
 
             Context context = request.getContext();
             String servletClassName = context.getServletClassName(uri);
-
+            HttpServlet workingServlet;
             if(null!=servletClassName)
-                InvokerServlet.getInstance().service(request,response);
+                workingServlet = InvokerServlet.getInstance();
+            else if(uri.endsWith(".jsp"))
+                workingServlet = JspServlet.getInstance();
             else
-                DefaultServlet.getInstance().service(request,response);
+                workingServlet = DefaultServlet.getInstance();
+
+            List<Filter> filters = request.getContext().getMatchedFilters(request.getRequestURI());
+            ApplicationFilterChain filterChain = new ApplicationFilterChain(filters, workingServlet);
+            filterChain.doFilter(request, response);
+
+            if(request.isForwarded())
+                return;
 
             if(Constant.CODE_200 == response.getStatus()){
-                handle200(s, response);
+                handle200(s, request, response);
+                return;
+            }
+
+            if(Constant.CODE_302 == response.getStatus()){
+                handle302(s, response);
                 return;
             }
             if(Constant.CODE_404 == response.getStatus()){
@@ -53,20 +74,37 @@ public class HttpProcessor {
             }
         }
     }
-    private static void handle200(Socket s, Response response) throws IOException {
+    private void handle200(Socket s, Request request, Response response)
+            throws IOException {
+        OutputStream os = s.getOutputStream();
+
         String contentType = response.getContentType();
-        String headText = Constant.response_head_202;
-        String cookiesHeader = response.getCookiesHeader();
-        headText = StrUtil.format(headText, contentType, cookiesHeader);
-        byte[] head = headText.getBytes();
 
         byte[] body = response.getBody();
+        String cookiesHeader = response.getCookiesHeader();
+
+        boolean gzip = isGzip(request, body, contentType);
+
+        String headText;
+        if (gzip)
+            headText = Constant.response_head_200_gzip;
+        else
+            headText = Constant.response_head_200;
+
+        headText = StrUtil.format(headText, contentType, cookiesHeader);
+
+        if (gzip)
+            body = ZipUtil.gzip(body);
+
+        byte[] head = headText.getBytes();
         byte[] responseBytes = new byte[head.length + body.length];
         ArrayUtil.copy(head, 0, responseBytes, 0, head.length);
         ArrayUtil.copy(body, 0, responseBytes, head.length, body.length);
 
-        OutputStream os = s.getOutputStream();
-        os.write(responseBytes);
+        os.write(responseBytes,0,responseBytes.length);
+        os.flush();
+        os.close();
+
     }
 
     private void handle404(Socket s, String uri) throws IOException {
@@ -75,6 +113,14 @@ public class HttpProcessor {
         responseText = Constant.response_head_404 + responseText;
         byte[] responseByte = responseText.getBytes("utf-8");
         os.write(responseByte);
+    }
+    private void handle302(Socket s, Response response) throws IOException {
+        OutputStream os = s.getOutputStream();
+        String redirectPath = response.getRedirectPath();
+        String head_text = Constant.response_head_302;
+        String header = StrUtil.format(head_text, redirectPath);
+        byte[] responseBytes = header.getBytes("utf-8");
+        os.write(responseBytes);
     }
 
     private void handle500(Socket s, Exception e) {
@@ -107,5 +153,40 @@ public class HttpProcessor {
         String jsessionid = request.getJSessionIdFromCookie();
         HttpSession session = SessionManager.getSession(jsessionid, request, response);
         request.setSession(session);
+    }
+
+    private boolean isGzip(Request request, byte[] body, String mimeType) {
+        String acceptEncodings=  request.getHeader("Accept-Encoding");
+        if(!StrUtil.containsAny(acceptEncodings, "gzip"))
+            return false;
+
+        Connector connector = request.getConnector();
+
+        if (mimeType.contains(";"))
+            mimeType = StrUtil.subBefore(mimeType, ";", false);
+
+        if (!"on".equals(connector.getCompression()))
+            return false;
+
+        if (body.length < connector.getCompressionMinSize())
+            return false;
+
+        String userAgents = connector.getNoCompressionUserAgents();
+        String[] eachUserAgents = userAgents.split(",");
+        for (String eachUserAgent : eachUserAgents) {
+            eachUserAgent = eachUserAgent.trim();
+            String userAgent = request.getHeader("User-Agent");
+            if (StrUtil.containsAny(userAgent, eachUserAgent))
+                return false;
+        }
+
+        String mimeTypes = connector.getCompressableMimeType();
+        String[] eachMimeTypes = mimeTypes.split(",");
+        for (String eachMimeType : eachMimeTypes) {
+            if (mimeType.equals(eachMimeType))
+                return true;
+        }
+
+        return false;
     }
 }

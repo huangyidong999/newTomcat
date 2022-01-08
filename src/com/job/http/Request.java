@@ -10,11 +10,14 @@ import java.util.Map;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.URLUtil;
+import com.job.catalina.Connector;
 import com.job.catalina.Context;
 import com.job.catalina.Engine;
 import com.job.catalina.Service;
 import com.job.util.MiniBrowser;
 import cn.hutool.core.util.StrUtil;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
@@ -29,18 +32,22 @@ public class Request extends BaseRequest{
     private String uri;
     private Socket socket;
     private Context context;
-    private Service service;
     private String method;
     private String queryString;
     private Map<String, String[]> parameterMap;
     private Map<String, String> headerMap;
+    private Map<String, Object> attributesMap;
     private Cookie[] cookies;
     private HttpSession session;
-    public Request(Socket socket, Service service) throws IOException {
+    private Connector connector;
+    private boolean forwarded;
+
+    public Request(Socket socket,  Connector connector) throws IOException {
         this.parameterMap = new HashMap();
         this.headerMap = new HashMap<>();
+        this.attributesMap = new HashMap<>();
         this.socket = socket;
-        this.service = service;
+        this.connector = connector;
         parseHttpRequest();
         if(StrUtil.isEmpty(requestString))
             return;
@@ -63,6 +70,7 @@ public class Request extends BaseRequest{
     }
 
     private void parseContext() {
+        Service service = connector.getService();
         Engine engine = service.getEngine();
         context = engine.getDefaultHost().getContext(uri);
         if(null!=context)
@@ -317,5 +325,45 @@ public class Request extends BaseRequest{
     }
     public void setSession(HttpSession session) {
         this.session = session;
+    }
+    public Connector getConnector() {
+        return connector;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public boolean isForwarded() {
+        return forwarded;
+    }
+
+    public void setForwarded(boolean forwarded) {
+        this.forwarded = forwarded;
+    }
+
+    public RequestDispatcher getRequestDispatcher(String uri) {
+        return new ApplicationRequestDispatcher(uri);
+    }
+
+    public void removeAttribute(String name) {
+        attributesMap.remove(name);
+    }
+
+    public void setAttribute(String name, Object value) {
+        attributesMap.put(name, value);
+    }
+
+    public Object getAttribute(String name) {
+        return attributesMap.get(name);
+    }
+
+    public Enumeration<String> getAttributeNames() {
+        Set<String> keys = attributesMap.keySet();
+        return Collections.enumeration(keys);
     }
 }

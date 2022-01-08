@@ -75,4 +75,6 @@
         <servlet-name>GetSessionServlet</servlet-name>
         <url-pattern>/getSession</url-pattern>
     </servlet-mapping>
+
+
 </web-app>

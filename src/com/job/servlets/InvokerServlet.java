@@ -36,7 +36,11 @@ public class InvokerServlet extends HttpServlet {
             Class servletClass = context.getWebappClassLoader().loadClass(servletClassName);
             Object servletObject = context.getServlet(servletClass);
             ReflectUtil.invoke(servletObject, "service", request, response);
-            response.setStatus(Constant.CODE_200);
+
+            if(null!=response.getRedirectPath())
+                response.setStatus(Constant.CODE_302);
+            else
+                response.setStatus(Constant.CODE_200);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

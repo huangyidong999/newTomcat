@@ -4,6 +4,7 @@ import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.util.ZipUtil;
 import cn.hutool.http.HttpUtil;
 import com.job.util.MiniBrowser;
 import org.apache.tomcat.util.threads.ThreadPoolExecutor;
@@ -148,7 +149,7 @@ public class tomcatTest {
     }
     private byte[] getContentBytes(String uri,boolean gzip) {
         String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
-        return MiniBrowser.getContentBytes(url,false);
+        return MiniBrowser.getContentBytes(url,gzip);
     }
     private String getContentString(String uri) {
         String url = StrUtil.format("http://{}:{}{}", ip,port,uri);
@@ -194,6 +195,33 @@ public class tomcatTest {
         containAssert(html,"Gareen(session)");
     }
 
+    @Test
+    public void testGzip() {
+        byte[] gzipContent = getContentBytes("/",true);
+        byte[] unGzipContent = ZipUtil.unGzip(gzipContent);
+        String html = new String(unGzipContent);
+        Assert.assertEquals(html, "Hello I hope I will get a job");
+    }
+
+    @Test
+    public void testJsp() {
+        String html = getContentString("/javaweb/");
+        Assert.assertEquals(html, "hello jsp@javaweb");
+    }
+
+    @Test
+    public void testClientJump(){
+        String http_servlet = getHttpString("/javaweb/jump1");
+        containAssert(http_servlet,"HTTP/1.1 302 Found");
+        String http_jsp = getHttpString("/javaweb/jump1.jsp");
+        containAssert(http_jsp,"HTTP/1.1 302 Found");
+    }
+
+    @Test
+    public void testServerJumpWithAttributes(){
+        String http_servlet = getHttpString("/javaweb/jump2");
+        containAssert(http_servlet,"Hello DIY Tomcat from HelloServlet@javaweb, the name is gareen");
+    }
     private void containAssert(String html, String string) {
         boolean match = StrUtil.containsAny(html, string);
         Assert.assertTrue(match);

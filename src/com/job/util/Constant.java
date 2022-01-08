@@ -10,12 +10,18 @@ public class Constant {
     public static final int CODE_404 = 404;
     public static final int CODE_500 = 500;
 
-    public static final String response_head_202 =
+    public static final String response_head_302 =
+            "HTTP/1.1 302 Found\r\nLocation: {}\r\n\r\n";
+
+    public static final String response_head_200 =
             "HTTP/1.1 200 OK\r\n" +
                     "Content-Type: {}{}" +
                     "\r\n\r\n";
 
-
+    public static final String response_head_200_gzip =
+            "HTTP/1.1 200 OK\r\nContent-Type: {}{}\r\n" +
+                    "Content-Encoding:gzip" +
+                    "\r\n\r\n";
 
     public static final String response_head_404 =
             "HTTP/1.1 404 Not Found\r\n" +
@@ -58,6 +64,7 @@ public class Constant {
     public static final File serverXmlFile = new File(confFolder, "server.xml");
 
     public static final File webXmlFile = new File(confFolder, "web.xml");
-
     public static final File contextXmlFile = new File(confFolder, "context.xml");
+
+    public static final String workFolder = SystemUtil.get("user.dir") + File.separator + "work";
 }
